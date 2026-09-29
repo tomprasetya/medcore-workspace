@@ -32,6 +32,8 @@ type DrugDoc struct {
 }
 
 func (s *server) CheckDrugAvailability(ctx context.Context, req *pb.CheckDrugRequest) (*pb.CheckDrugResponse, error) {
+	time.Sleep(2 * time.Second)
+	
 	if req.GetQuantityNeeded() > 5000 {
 		return nil, status.Errorf(codes.ResourceExhausted, "Permintaan melebihi batas kuota farmasi: %d (Maksimal: 5000)", req.GetQuantityNeeded())
 	}

@@ -13,7 +13,7 @@ import (
 )
 
 func callCheckDrug(client pb.PharmacyServiceClient, drugCode string, qty int32) {
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 500*time.Millisecond)
 	defer cancel()
 
 	log.Printf("[RPC Call] Menguji obat: %s (Qty: %d)", drugCode, qty)
